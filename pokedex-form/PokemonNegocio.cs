@@ -19,7 +19,7 @@ namespace pokedex_form
             {
                 conexion.ConnectionString = "data source=.\\SQLEXPRESS; initial catalog=POKEDEX_DB; integrated security=true";
                 comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "select nombre, descripcion, Numero, UrlImagen from pokemons";
+                comando.CommandText = "select a.nombre, a.descripcion, a.Numero, a.UrlImagen, b.descripcion from pokemons a join elementos b on a.IdTipo = b.Id";
                 comando.Connection = conexion;
 
                 conexion.Open();
@@ -32,6 +32,8 @@ namespace pokedex_form
                     aux.Descripcion = (string)lector["descripcion"];
                     aux.Numero = lector.GetInt32(2);
                     aux.UrlImagen = (string)lector["UrlImagen"];
+                    // tipo = getEmoteByType(lector.GetString(4));
+                    aux.Tipo = lector.GetString(4);
 
                     lista.Add(aux);
                 }
@@ -46,5 +48,22 @@ namespace pokedex_form
 
 
         }
+        /*public string getEmoteByType(string tipo)
+        {
+            string resultado = "";
+            switch (tipo)
+            {
+                case ("Fuego"):
+                    resultado = "🔥";
+                    break;
+                case ("Planta"):
+                    resultado = "🍃";
+                    break;
+                case ("Agua"):
+                    resultado = "💧";
+                    break;
+            }
+            return resultado;
+        }*/
     }
 }

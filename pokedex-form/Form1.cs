@@ -30,6 +30,7 @@ namespace pokedex_form
                 dgvPokemons.Columns[4].Visible = false;
 
                 pbxPokemon.Load(listaObtenida[0].UrlImagen);
+                txtDescripcion.Text = listaObtenida[0].Descripcion;
             }
             catch (Exception ex)
             {
@@ -42,6 +43,8 @@ namespace pokedex_form
         {
             Pokemon poke = (Pokemon)dgvPokemons.CurrentRow.DataBoundItem;
             pbxPokemon.Load(poke.UrlImagen);
+
+            txtDescripcion.Text = poke.Descripcion;
         }
     }
 }

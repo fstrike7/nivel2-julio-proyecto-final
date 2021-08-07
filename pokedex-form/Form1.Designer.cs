@@ -31,6 +31,7 @@ namespace pokedex_form
         {
             this.dgvPokemons = new System.Windows.Forms.DataGridView();
             this.pbxPokemon = new System.Windows.Forms.PictureBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPokemons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxPokemon)).BeginInit();
             this.SuspendLayout();
@@ -48,24 +49,35 @@ namespace pokedex_form
             // 
             this.pbxPokemon.Location = new System.Drawing.Point(482, 50);
             this.pbxPokemon.Name = "pbxPokemon";
-            this.pbxPokemon.Size = new System.Drawing.Size(300, 300);
+            this.pbxPokemon.Size = new System.Drawing.Size(250, 250);
             this.pbxPokemon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxPokemon.TabIndex = 1;
             this.pbxPokemon.TabStop = false;
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.Location = new System.Drawing.Point(482, 306);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(250, 20);
+            this.txtDescripcion.TabIndex = 2;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(839, 416);
+            this.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.ClientSize = new System.Drawing.Size(839, 393);
+            this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.pbxPokemon);
             this.Controls.Add(this.dgvPokemons);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Opacity = 0.9D;
+            this.Text = "Pokedex";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPokemons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxPokemon)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -73,6 +85,7 @@ namespace pokedex_form
 
         private System.Windows.Forms.DataGridView dgvPokemons;
         private System.Windows.Forms.PictureBox pbxPokemon;
+        private System.Windows.Forms.TextBox txtDescripcion;
     }
 }
 
