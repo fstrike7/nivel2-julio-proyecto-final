@@ -32,6 +32,8 @@ namespace pokedex_form
             this.dgvPokemons = new System.Windows.Forms.DataGridView();
             this.pbxPokemon = new System.Windows.Forms.PictureBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.btnActualizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPokemons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxPokemon)).BeginInit();
             this.SuspendLayout();
@@ -56,10 +58,29 @@ namespace pokedex_form
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(482, 306);
+            this.txtDescripcion.Location = new System.Drawing.Point(482, 330);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(250, 20);
             this.txtDescripcion.TabIndex = 2;
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(482, 307);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(35, 13);
+            this.lblNombre.TabIndex = 3;
+            this.lblNombre.Text = "label1";
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Location = new System.Drawing.Point(656, 358);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(75, 23);
+            this.btnActualizar.TabIndex = 4;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // Form1
             // 
@@ -67,6 +88,8 @@ namespace pokedex_form
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(839, 393);
+            this.Controls.Add(this.btnActualizar);
+            this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.pbxPokemon);
             this.Controls.Add(this.dgvPokemons);
@@ -86,6 +109,8 @@ namespace pokedex_form
         private System.Windows.Forms.DataGridView dgvPokemons;
         private System.Windows.Forms.PictureBox pbxPokemon;
         private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.Button btnActualizar;
     }
 }
 

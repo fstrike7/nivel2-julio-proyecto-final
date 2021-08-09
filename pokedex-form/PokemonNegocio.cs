@@ -19,7 +19,7 @@ namespace pokedex_form
             {
                 conexion.ConnectionString = "data source=.\\SQLEXPRESS; initial catalog=POKEDEX_DB; integrated security=true";
                 comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "select a.nombre, a.descripcion, a.Numero, a.UrlImagen, b.descripcion from pokemons a join elementos b on a.IdTipo = b.Id";
+                comando.CommandText = "select a.nombre, a.descripcion, a.Numero, a.UrlImagen, b.descripcion, a.id from pokemons a join elementos b on a.IdTipo = b.Id";
                 comando.Connection = conexion;
 
                 conexion.Open();
@@ -34,6 +34,7 @@ namespace pokedex_form
                     aux.UrlImagen = (string)lector["UrlImagen"];
                     // tipo = getEmoteByType(lector.GetString(4));
                     aux.Tipo = lector.GetString(4);
+                    aux.Id = lector.GetInt32(5);
 
                     lista.Add(aux);
                 }
@@ -47,6 +48,36 @@ namespace pokedex_form
             }
 
 
+        }
+        public bool actualizar(int id, string descripcion)
+        {
+            SqlConnection conexion = new SqlConnection();
+            SqlCommand comando = new SqlCommand();
+            try
+            {
+                conexion.ConnectionString = "data source=.\\SQLEXPRESS; initial catalog=POKEDEX_DB; integrated security=true";
+                comando.CommandType = System.Data.CommandType.Text;
+                comando.CommandText = "update POKEMONS set descripcion = @descripcion where id = @id";
+                comando.Parameters.AddWithValue("@descripcion", descripcion);
+                comando.Parameters.AddWithValue("@id", Convert.ToInt32(id));
+                comando.Connection = conexion;
+
+                conexion.Open();
+                int rows = comando.ExecuteNonQuery();
+                conexion.Close();
+                if (rows == 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         /*public string getEmoteByType(string tipo)
         {
